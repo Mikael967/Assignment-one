@@ -1,5 +1,5 @@
 ## Name
-Choose a self-explaining name for your project.
+Tugule
 
 ## Description
 Tugule is a commercial online webplatform designed to provide users with a seamless shopping experience. Whether your'e a customer looking for quality products or a seller aiming to showcase your merchandise. Tugule offers a platform that meets your needs.
