@@ -1,0 +1,17 @@
+{% extends 'tugulenga/base.html' %}
+{% load static %}
+{%load bootstrap5%}
+
+{% block content %}
+<br>
+<div class="container border rounded-3 p-5 ">
+    <form class="form " role="form">
+    <h2>Registration</h2>
+        {%bootstrap_form form layout='inline'%} {% csrf_token %}
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <a href="{%url 'tugule:home'%}">Already have account?</a>
+
+</form> <!-- /form -->
+</div>
+{%endblock%}

@@ -13,16 +13,17 @@
 				<div class="col-md-6 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
 		      	<div class="icon d-flex align-items-center justify-content-center">
-		      		<img src="{%static 'images/download.jpeg'%}" height="100%" width="100%" style="border-radius: 100%;">
+		      		<img src="{%static 'images/logo.jpg'%}" height="100%" width="100%" style="border-radius: 100%;">
 		      	</div>
 		      	<h3 class="text-center mb-4">Have an account?</h3>
-						<form action="#" class="login-form">
+		<form action="#" class="login-form">
+							{% csrf_token %}
 		      		<div class="form-group">
-		      			<input  type="text" style="width: 320px;height: 46px;" placeholder="Username" required>
+		      			<input  type="text" style="width: 320px;height: 46px;" name="username"placeholder="Username" required>
 		      		</div>
 	            <div class="form-group ">
 					
-	              <input id="password" type="password"    style="width: 320px;height: 46px;" placeholder="Password" required=""/>
+	              <input id="password" type="password"    style="width: 320px;height: 46px;" name="password"placeholder="Password" required=""/>
 				  <span class="fa fa-eye" id="togglePassword"></span>
 	            </div>
 	            <div class="input-group mb-5 justify-content-between">
@@ -37,16 +38,16 @@
 									<a href="#">Forgot Password?</a>
 								</div>
 								<div class="input-group mb-3">
-									<small>Don't have account?<a href="#">Sign up</a></small>
+									<small>Don't have account?<a href="{%url 'tugule:signup'%}">Sign up</a></small>
 								</div>
 				
 
 				</h3>				
 	            </div>
 	            <div class="form-group">
-	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get Started</button>
+	            	<button type="submit" class="btn btn-dark rounded submit p-3 px-5">Get Started</button>
 	            </div>
-	          </form>
+		</form>
 	        </div>
 				</div>
 			</div>
