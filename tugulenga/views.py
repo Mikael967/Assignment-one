@@ -4,15 +4,8 @@ from django.contrib.auth import authenticate, login ,logout
 
 # Create your views here.
 def home(request):
-    if request.method == 'POST':
-        
     
-        
-        username = request.POST.get('username')
-        user = authenticate(username=username, password=request.POST.get('password'))
-        login(request,user)
-            #return redirect('/profile')
-    return render(request,'tugulenga/login.html')
+    return render(request,'tugulenga/index.html')
 
 def signup(request):
     form = UserCreationForm()
@@ -28,5 +21,15 @@ def signup(request):
              
     context={"form":form}
     return render(request,"tugulenga/signup.html",context)
+def login(request):
+    if request.method == 'POST':
+        
     
+        
+        username = request.POST.get('username')
+        user = authenticate(username=username, password=request.POST.get('password'))
+        login(request,user)
+            #return redirect('/profile')
+    return render(request,'tugulenga/login.html')
+  
     
