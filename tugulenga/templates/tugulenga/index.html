@@ -1,4 +1,8 @@
+
 {%load static%}
+{%load bootstrap5%}
+{%bootstrap_javascript%}
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -6,12 +10,14 @@
   <title>Tugule</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png" href="https://image.ibb.co/fOur3b/favicon.png"/>
+
+<link rel='stylesheet' href='https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css'><link rel="stylesheet" href="{% static 'css/slide.css' %}">
 <meta name="theme-color" content="#3a9fff"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="{%static 'css/stylez.css'%}">
 
-</head>
+
 <body>
 <!-- partial:index.partial.html -->
-<head>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/x-icon" href="{%static 'images/logo.jpg'%}"/>
 <meta name="theme-color" content="#1885ed">
@@ -19,6 +25,8 @@
 </head>
 
 <body>
+
+  
 <header class="header">
   <div class="container header__container">
 <div class="header__logo"><img class="header__img" src="{%static 'images/logo.png'%}"height=70px style="border-radius: 100%;"> <h1 class="header__title">Tugule<span class="header__light"></span></h1></div> 
@@ -49,9 +57,10 @@
       <div class="col-md-12">
     <div class="site">
       <h1 class="site__title">Where Users Meet Businesses in a Click!</h1>
-      <h2 class="site__subtitle">Unlocking Opportunities, One Click at a Time!</h2>
       
-      <img class="site__img" src="https://image.ibb.co/c7grYb/image3015.png">
+      
+      
+     {% include 'tugulenga/slide.html' %}
     </div>
     </div>
     </div>
@@ -94,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="career_title">Tugule is a commercial online webplatform designed to provide users with a seamless shopping experience. Whether your'e a customer looking for quality products or a seller aiming to showcase your merchandise. Tugule offers a platform that meets your needs.</h1>
+        <p class="career_title">Tugule is a commercial online webplatform designed to provide users with a seamless shopping experience. Whether your'e a customer looking for quality products or a seller aiming to showcase your merchandise. Tugule offers a platform that meets your needs.</p>
         
         
       </div>
@@ -105,10 +114,14 @@
 
 
 
-</body>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script><script  src="{%static 'js/script.js'%}"></script>
 
+<!-- partial -->
+ 
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js'></script>
+<script  src="{%static 'js/script.js'%}"></script>
+<script src="{% static 'js/slides.js' %}"></script>
 </body>
 </html>
