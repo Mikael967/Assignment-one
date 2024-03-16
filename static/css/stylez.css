@@ -474,6 +474,7 @@ filter: drop-shadow(0px 7px 4px rgba(0,0,0,.2));
 }
 .header__menu {
     float: right;
+    
 }
 .header__el{
     padding: 0 25px;
