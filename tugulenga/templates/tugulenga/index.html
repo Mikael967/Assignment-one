@@ -1,0 +1,100 @@
+
+{%load static%}
+{%load bootstrap5%}
+{%bootstrap_javascript%}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tugule</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="https://image.ibb.co/fOur3b/favicon.png"/>
+
+<link rel='stylesheet' href='https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css'><link rel="stylesheet" href="{% static 'css/slide.css' %}">
+<meta name="theme-color" content="#3a9fff"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="{%static 'css/stylez.css'%}">
+
+
+<body>
+<!-- partial:index.partial.html -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="{%static 'images/logo.jpg'%}"/>
+<meta name="theme-color" content="#1885ed">
+  <title>Tugule- Homepage</title>
+</head>
+
+<body>
+
+  
+<header class="header">
+  <div class="container header__container">
+<div class="header__logo"><img class="header__img" src="{%static 'images/logo.png'%}"height=70px style="border-radius: 100%;"> <h1 class="header__title">Tugule<span class="header__light"></span></h1></div> 
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+  
+  <div class="header__menu">
+    <nav id="navbar" class="header__nav collapse">
+      <ul class="header__elenco">
+        <li class="header__el"><a href="{%url 'tugule:home'%}" class="header__link">Home</a></li>
+        <li class="header__el"><a href="{%url 'tugule:signup'%}" class="header__link">Register now!</a></li>
+       
+        
+        <li class="header__el header__el--blue"><a href="{%url 'tugule:login'%}" class="btn btn--white">Log In →</a></li>
+      </ul>
+    </nav>
+  </div>
+    </div>
+</header>
+
+<div class="sect sect--padding-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+    <div class="site">
+      <h1 class="site__title"></h1>
+      <h2 class="site__title">Where Users Meet Businesses in a Click!</h2>
+      
+      
+      
+     {% include 'tugulenga/slide.html' %}
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="sect sect--violet ">
+  <img src="https://image.ibb.co/fWyVtb/path3762.png" class="career-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="career_title">Tugule is a commercial online webplatform designed to provide users with a seamless shopping experience. Whether your'e a customer looking for quality products or a seller aiming to showcase your merchandise. Tugule offers a platform that meets your needs.</p>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+<!-- partial -->
+ 
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js'></script>
+<script  src="{%static 'js/script.js'%}"></script>
+<script src="{% static 'js/slides.js' %}"></script>
+</body>
+</html>
