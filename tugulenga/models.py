@@ -41,7 +41,7 @@ class Product(models.Model):
         Services = 'Services','Services'
 
     business_account= models.ForeignKey(Business_account, on_delete=models.CASCADE, null=True, blank=True )
-    product_category=models.CharField(max_length=20, choices=Product_category, default=Product_category.Services)
+    product_category=models.CharField(max_length=20, choices=Product_category.choices, default=Product_category.Services)
     name = models.CharField(max_length=200, null=True)
     price = models.FloatField()
     
