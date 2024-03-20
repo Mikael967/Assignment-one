@@ -1,3 +1,6 @@
 *.pyc
-tugulenga/migrations/
+tugulenga/migrations/*
+!tugulenga/migrations/__init__.py
+products/migrations/*
+!products/migrations/__init__.py
 db.sqlite3
