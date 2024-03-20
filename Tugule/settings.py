@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tugulenga',
     'bootstrap5',
+    'products',
 ]
 
 MIDDLEWARE = [
