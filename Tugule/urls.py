@@ -19,5 +19,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('tugulenga.urls',namespace='tugule'))
+    path('',include('tugulenga.urls',namespace='tugule')),
+    path('products/',include('products.urls',namespace='products'))
+
+
 ]

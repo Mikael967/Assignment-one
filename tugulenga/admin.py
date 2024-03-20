@@ -3,7 +3,7 @@ from . models import *
 
 # Registering models
 admin.site.register (Business_account)
-admin.site.register(Customer)
+admin.site.register(Profile)
 admin.site.register(Product)
 admin.site.register(Order)
 admin.site.register(OrderItem)
