@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import  UserCreationForm, AuthenticationForm
-from django.contrib.auth import authenticate, login ,logout
-
+from tugulenga.models import Product
 # Create your views here.
 def home(request):
+    products=Product.objects.all()
+    context={"products":products}
     
-    return render(request,'products/products.html')
+    return render(request,'products/products.html',context)
