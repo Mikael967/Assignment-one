@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.forms import  UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login ,logout
+from .forms import *
 
 # Create your views here.
 def home(request):
@@ -32,4 +33,5 @@ def login(request):
             #return redirect('/profile')
     return render(request,'tugulenga/login.html')
   
-    
+
+
