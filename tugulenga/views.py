@@ -32,4 +32,5 @@ def login(request):
             #return redirect('/profile')
     return render(request,'tugulenga/login.html')
   
+  
     
