@@ -50,7 +50,7 @@ def add_product(request):
                 product_category = product_category
             )
             product.save()
-            return redirect('tugulenga:add_product')
+            return redirect('tugule:add_product')
     else:
         form = ProductForm()
 
@@ -79,7 +79,7 @@ def add_business_account(request):
                 logo = logo
             )
             business_product.save()
-            return redirect('tugulenga:add_business_acoount')
+            return redirect('tugule:add_business_acoount')
     else:
         form = Business_accountForm()
 

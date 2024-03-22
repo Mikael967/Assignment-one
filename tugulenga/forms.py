@@ -11,7 +11,7 @@ class ProductForm(ModelForm):
 class Business_accountForm(ModelForm):
     class Meta:
         model = Business_account
-        fields = ('name','phone','email','locaton','description','logo')  
+        fields = ('name','phone','email','location','description','logo')  
 
 class OrderForm(ModelForm):
     class Meta:
