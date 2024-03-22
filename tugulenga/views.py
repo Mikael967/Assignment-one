@@ -31,5 +31,3 @@ def login(request):
         login(request,user)
             #return redirect('/profile')
     return render(request,'tugulenga/login.html')
-  
-    
