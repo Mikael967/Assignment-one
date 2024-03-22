@@ -39,7 +39,7 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            name = form.cleaned_data['product_name']
+            name = form.cleaned_data['name']
             price = form.cleaned_data['price']
             product_category = form.cleaned_data['product_category']
 
@@ -50,7 +50,7 @@ def add_product(request):
                 product_category = product_category
             )
             product.save()
-            return redirect('tugule:add_product')
+            return redirect('products:home')
     else:
         form = ProductForm()
 
