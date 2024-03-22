@@ -55,5 +55,34 @@ def add_product(request):
         form = ProductForm()
 
     return render(request, 'tugulenga/add_product.html',{'form':form})
-            
+
+def add_business_account(request):
+    owner = Business_account.objects.get(owner = request.user)
+    if request.method == 'POST':
+        form = Business_accountForm(request.POST, request.FILES)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone']
+            email = form.cleaned_data['email']
+            location = form.cleaned_data['location']
+            description = form.cleaned_data['description']
+            logo = form.cleaned_data['logo']
+
+
+            business_product = Business_account.objects.create(
+                owner = owner,
+                name = name,
+                phone = phone,
+                email = email,
+                location = location,
+                description = description,
+                logo = logo
+            )
+            business_product.save()
+            return redirect('tugulenga:add_business_acoount')
+    else:
+        form = Business_accountForm()
+
+    return render(request, 'tugulenga/add_business_account.html',{'form':form})
+
 
