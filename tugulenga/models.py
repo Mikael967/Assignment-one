@@ -30,14 +30,13 @@ class Profile (models.Model):
 
 class Business_account(models.Model):
 
-    
+    owner= models.OneToOneField(User,on_delete= models.CASCADE, blank = True, null = True)
     name = models.CharField(max_length = 100)
     phone = models.CharField(max_length =20)
     email = models.EmailField()
     location = models.CharField(max_length = 255)
     description = models.TextField()
     logo = models.ImageField(upload_to='Logos/', null= True, blank=True)
-    
     
 
     def __str__(self):
