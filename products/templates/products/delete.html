@@ -1,0 +1,19 @@
+{%load static%}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body>
+<p>Are you sure you want to delete {{order}}?</p>
+<div class ="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <form action="{%url 'products:delete_order' order.id%}" method="POST">
+                {%csrf_token%}
+                <a class="btn btn-warning" href="{%url 'products:cart'%}">Cancel</a>
+                <input class="btn btn-danger" type="submit" name="Confirm">
+            
+            </form>
+        </div>
+    </div>
+</div>
+
+

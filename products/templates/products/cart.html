@@ -6,24 +6,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tugule</title>
-    <link rel="shortcut icon" type="image/png" href="https://image.ibb.co/fOur3b/favicon.png"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel='stylesheet' href='https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css'><link rel="stylesheet" href="{% static 'css/slide.css' %}">
-<meta name="theme-color" content="#3a9fff"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="{%static 'css/stylez.css'%}">
+
+
 <style>
     tbody tr:hover{
         background-color:lightblue;
         color: rgb(66, 5, 249);
     }
+    :root{
+        --bs-body-bg:lightblue
+    }
     .btn{
-        color:white;
+        color:red;
         background-color: crimson;
+        cursor: pointer;
+        box-shadow: none;
+    }
+    .btn:hover{
+        background-color: rgb(96, 3, 3);
+        color: white;
     }
 </style>
 
 </head>
 <body>
+   {%block content%}
+    {%include 'products/navbar.html'%}
+    {%endblock%}
     <div class="container">
         <div class="row">
             <div class="card card-body">
@@ -40,7 +50,7 @@
                             <td>{{i.product}}</td>
                             <td></td>
                             <td>{{i.quantity}}</td>
-                            <td><a class="btn btn-sm"href="">Delete </a></td>
+                            <td><a class="btn btn-danger"href="{%url 'products:delete_order' i.id%}">Delete </a></td>
 
                             
                         </tr>
