@@ -93,7 +93,7 @@ def add_orderItem(request):
             product = form.cleaned_data['product']
             order = form.cleaned_data['order']
             quantity = form.cleaned_data['quantity']
-            date_added = form.cleaned_data['date_added']
+            
 
             order_item = OrderItem.objects.create(
                 owner = owner,
