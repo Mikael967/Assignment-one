@@ -100,7 +100,7 @@ def add_orderItem(request):
                product = product,
                order = order,
                quantity = quantity,
-               date_added= date_added
+              
 
             )
             order_item.save()

@@ -21,6 +21,6 @@ class OrderForm(ModelForm):
 class OrderItemForm(ModelForm):
     class Meta:
         model = OrderItem
-        fields = '__all__'
+        fields =  ('product','order','quantity')
                
 
