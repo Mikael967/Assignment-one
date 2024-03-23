@@ -84,7 +84,7 @@
           <img src="{{product.image.url}}" alt="{{product.name}}">
           <h2>{{product.name}}</h2>
           <p>shs.{{product.price}}</p>
-          <a href="#">ORDER</a>
+          <a href="{%url 'products:order' product.id%}">ORDER</a>
         </article>
         {%endfor%}
         <!-- More product cards here -->
