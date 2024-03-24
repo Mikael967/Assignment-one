@@ -4,7 +4,7 @@ from PIL import Image
 
 # Creating  models here.
 class Profile (models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) # One to one relationship with the User model.
+    user = models.OneToOneField(User,null=True, on_delete=models.CASCADE) # One to one relationship with the User model.
     # image = models.ImageField(default='avatar.png', upload_to= 'profile/', blank=True)
     contact = models.CharField(max_length = 50, default='07893672948')
     name = models.CharField(max_length = 200, default = user)
