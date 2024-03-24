@@ -1,0 +1,63 @@
+<!--make a page for a cart-->
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugule</title>
+    <link rel="shortcut icon" type="image/png" href="https://image.ibb.co/fOur3b/favicon.png"/>
+      
+
+<style>
+    tbody tr:hover{
+        background-color:lightblue;
+        color: rgb(66, 5, 249);
+    }
+    :root{
+        --bs-body-bg:lightblue
+    }
+    .btn{
+        color:red;
+        background-color: crimson;
+        cursor: pointer;
+        box-shadow: none;
+    }
+    .btn:hover{
+        background-color: rgb(96, 3, 3);
+        color: white;
+    }
+</style>
+
+</head>
+<body>
+   {%block content%}
+    {%include 'products/navbar.html'%}
+    {%endblock%}
+    <div class="container">
+        <div class="row">
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Date added</th>
+                        <th>Product</th>
+                        <th></th>
+                        <th>Quantity</th>
+                    </tr>
+                    {%for i in order_items%}
+                        <tr>
+                            <td>{{i.date_added}}</td>
+                            <td>{{i.product}}</td>
+                            <td></td>
+                            <td>{{i.quantity}}</td>
+                            <td><a class="btn btn-danger"href="{%url 'products:delete_order' i.id%}">Delete </a></td>
+
+                            
+                        </tr>
+                    {%endfor%}
+                    
+                </table>
+        </div>
+    </div>
+</body>
+</html>

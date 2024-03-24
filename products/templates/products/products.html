@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugule</title>
+  <link rel="shortcut icon" type="image/png" href="https://image.ibb.co/fOur3b/favicon.png"/>
     <style>
         .product-card-list {
   display: flex;
@@ -13,12 +14,15 @@
   justify-content: space-between;
   width: 100%;
 }
-
+		body{
+			background-color: rgba(198, 212, 227, 0.571);
+		}
+	
 .product-card {
   width: 300px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(59, 5, 237, 0.1);
   transition: transform 0.3s;
 }
 
@@ -46,8 +50,8 @@
 
 .product-card a {
   display: block;
-  background-color: #358ED7;
-  color: #fff;
+  background-color: #0a2338;
+  color: #c3dded;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -56,7 +60,7 @@
 }
 
 .product-card a:hover {
-  background-color: #2E7DAA;
+  background-color: #76c3ef;
 }
     </style>
     <style>
@@ -74,6 +78,9 @@
     </style>
 </head>
 <body>
+  
+    {%include 'products/navbar.html'%}
+    
     <div class="product-card-list">
       {%for product in products%}
       
@@ -81,7 +88,7 @@
           <img src="{{product.image.url}}" alt="{{product.name}}">
           <h2>{{product.name}}</h2>
           <p>shs.{{product.price}}</p>
-          <a href="#">Add to cart</a>
+          <a href="{%url 'products:order' product.id%}">ORDER</a>
         </article>
         {%endfor%}
         <!-- More product cards here -->
