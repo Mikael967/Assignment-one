@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from tugulenga.models import Product,Order, OrderItem
+from tugulenga.models import *
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 def create_order_item(request,product_id):
@@ -33,10 +33,19 @@ def create_order_item(request,product_id):
     return redirect('products:home')
 @login_required(login_url='tugule:login')
 def home(request):
-    products=Product.objects.all()
-    context={"products":products}
+    categories = Category.objects.all()
+    
+
+    context={ "categories":categories}
 
     return render(request,'products/products.html',context)
+@login_required(login_url='tugule:login')
+def products(request,category_id):
+    
+    category=Category.objects.get(id=category_id)
+    products=Product.objects.filter(category=category)
+    context = {'products':products,'category':category}
+    return render(request,'products/category.html',context)
 
 @login_required(login_url='tugule:login')
 def cart(request,):
