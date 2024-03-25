@@ -1,0 +1,23 @@
+{% extends 'products/base.html' %}
+{%load static%}
+
+    {%block content%}
+   
+     <div class="product-card-list">
+        {%for product in products%}
+      
+        <article class="product-card">
+          <img src="{{product.image.url}}" alt="{{product.name}}">
+          
+          <p>{{product.name}}</p>
+          <p>shs.{{product.price}}</p>
+          <p>Business: {{product.business_account.name}}</p>
+          <a href="{%url 'products:order' product.id%}">ORDER</a>
+        </article>
+        {%endfor%}
+
+        
+
+    {% endblock %}
+
+  
