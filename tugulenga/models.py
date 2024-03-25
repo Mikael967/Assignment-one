@@ -43,29 +43,27 @@ class Business_account(models.Model):
     def __str__(self):
         return self.name
     
-class Product(models.Model):
-    class Product_category(models.TextChoices):
-        supermarket = 'supermarket', 'supermarket'
-        home_and_office = 'home_and_office','home_and_office'
-        electronics = 'electronics','electronics'
-        Health_and_beauty = 'Health_and_beauty','Health_and_beauty'
-        fashion = 'fashion','fashion'
-        Computing = 'Computing','Computing'
-        sporting_goods = 'sporting_goods','sporting_goods'
-        garden_and_outdoors = 'garden_and_outdoors','garden_and_outdoors'
-        food = 'food ','food '
-        gaming = 'gaming ','gaming '
-        vehicle = 'vehicle','vehicle'
-        Services = 'Services','Services'
+class Category(models.Model):
+    name= models.CharField(max_length=50)
+    image =  models.ImageField( upload_to="Categories/", blank =True,null=True)
 
-    business_account= models.ForeignKey(Business_account, on_delete=models.CASCADE, null=True, blank=True )
-    image =  models.ImageField( upload_to="Products/", blank =True)
-    product_category=models.CharField(max_length=20, choices=Product_category.choices, default=Product_category.Services)
-    name = models.CharField(max_length=200, null=True)
-    price = models.FloatField()
-    
     def __str__(self):
         return self.name
+    
+class Product(models.Model):
+        
+       
+
+        business_account= models.ForeignKey(Business_account, on_delete=models.CASCADE, null=True, blank=True )
+        image =  models.ImageField( upload_to="Products/", blank =True)
+        category=models.ForeignKey(Category,max_length=20, null=True,on_delete=models.CASCADE,blank=True)
+        name = models.CharField(max_length=200, null=True)
+        price = models.FloatField()
+        
+        def __str__(self):
+            return self.name
+
+    
     
 class Order(models.Model):
     customer = models.ForeignKey(User,on_delete= models.CASCADE, null=True,blank=True)
