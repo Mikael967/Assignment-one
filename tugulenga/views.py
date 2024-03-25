@@ -11,6 +11,7 @@ from .models import *
 def home(request):
     
     return render(request,'tugulenga/index.html')
+
 @unauthenticated_user   
 def signup(request):
      
@@ -18,16 +19,10 @@ def signup(request):
     if request.method=='POST':
         form =CreateUserForm(data=request.POST)
         if form.is_valid():
-                user=form.save()
-                username=form.cleaned_data.get('username')
+                form.save()
+                user=form.cleaned_data.get('username')
 
-                group=Group.objects.get(name='customer')
-                user.groups.add(group)
-                Profile.objects.create(
-                     user=user,
-                )
-
-                messages.success(request,'Account was created for'+username)
+                messages.success(request,'Account was created for'+ user)
                 return redirect('tugule:login')
             
     context={"form":form}
@@ -48,6 +43,7 @@ def loginPage(request):
             messages.info(request,'Username or Password is incorrect')
         
     return render(request,'tugulenga/login.html')
+
 def logoutUser(request):
      logout(request)
      return redirect('tugule:home')
