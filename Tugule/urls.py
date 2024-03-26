@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+app_name = 'Tugule'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('tugulenga.urls',namespace='tugule')),
-    path('products/',include('products.urls',namespace='products'))
+    path('products/',include('products.urls',namespace='products')),
+    path('', include(('Tugule.urls', 'Tugule'), namespace='Tugule')),
 
 
 ]
