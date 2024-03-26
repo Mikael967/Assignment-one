@@ -85,27 +85,27 @@ def add_business_account(request):
 
     return render(request, 'tugulenga/add_business_account.html',{'form':form})
 
-def add_orderItem(request):
-    owner = Business_account.objects.get(owner = request.user)
-    if request.method == 'POST':
-        form = OrderItemForm(request.POST, request.FILES)
-        if form.is_valid():
-            product = form.cleaned_data['product']
-            order = form.cleaned_data['order']
-            quantity = form.cleaned_data['quantity']
+# def add_orderItem(request):
+#     owner = Business_account.objects.get(owner = request.user)
+#     if request.method == 'POST':
+#         form = OrderItemForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             product = form.cleaned_data['product']
+#             order = form.cleaned_data['order']
+#             quantity = form.cleaned_data['quantity']
             
 
-            order_item = OrderItem.objects.create(
-                owner = owner,
-               product = product,
-               order = order,
-               quantity = quantity,
+#             order_item = OrderItem.objects.create(
+#                 owner = owner,
+#                product = product,
+#                order = order,
+#                quantity = quantity,
               
 
-            )
-            order_item.save()
-            return redirect('products:home')
-    else:
-        form = OrderItemForm()
+#             )
+#             order_item.save()
+#             return redirect('products:home')
+#     else:
+#         form = OrderItemForm()
 
-    return render(request, 'tugulenga/add_orderItem.html',{'form':form})
+#     return render(request, 'tugulenga/add_orderItem.html',{'form':form})

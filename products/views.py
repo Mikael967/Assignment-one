@@ -6,3 +6,4 @@ from django.contrib.auth import authenticate, login ,logout
 def home(request):
     
     return render(request,'products/products.html')
+
