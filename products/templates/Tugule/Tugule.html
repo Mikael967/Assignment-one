@@ -1,4 +1,23 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+///File: Tugule/templates/store/Tugule.html
 
-<h3>store</h3>
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+     <h3>Store</h3>
+{% endblock content %}
+
+///File: store/templates/store/cart.html
+
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+     <h3>cart</h3>
+{% endblock content %}
+
+///File: store/templates/store/checkout.html
+
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+     <h3>checkout</h3>
+{% endblock content %}
