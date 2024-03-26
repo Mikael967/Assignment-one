@@ -9,7 +9,7 @@ from .models import *
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['image','category','name','price']
 
 class Business_accountForm(ModelForm):
     class Meta:

@@ -6,7 +6,7 @@ from .forms import CreateUserForm
 from django.contrib import messages
 from .decorators import unauthenticated_user
 from .models import *
-
+from .forms import *
 # Create your views here.
 def home(request):
     
@@ -49,5 +49,28 @@ def logoutUser(request):
      return redirect('tugule:home')
 
   
-  
+def add_product(request):
+    business_account = Business_account.objects.get(owner = request.user)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            image= form.cleaned_data['image']
+            category = form.cleaned_data['category']
+            name = form.cleaned_data['name']
+            price = form.cleaned_data['price']
+            
+
+            product = Product.objects.create(
+                business_account = business_account,
+                image=image,
+                name = name,
+                price = price,
+                category = category,
+            )
+            product.save()
+            return redirect('products:home')
+    else:
+        form = ProductForm()
+
+    return render(request, 'tugulenga/add_product.html',{'form':form})
     

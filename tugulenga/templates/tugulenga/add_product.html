@@ -1,0 +1,7 @@
+{%extends 'tugulenga/base.html' %}{% block content%}
+<form class="auth" enctype="multipart/form-data" action="{% url 'tugule:add_product' %}" method="POST">
+    {{form}} {% csrf_token %}
+    <button class="auth" type="submit">Add</button>
+</form>
+
+{% endblock %}

@@ -30,7 +30,7 @@ class Profile (models.Model):
 
 class Business_account(models.Model):
 
-    
+    owner= models.OneToOneField(User,on_delete= models.CASCADE, blank = True, null = True)
     name = models.CharField(max_length = 100)
     phone = models.CharField(max_length =20)
     email = models.EmailField()
