@@ -54,15 +54,18 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
+            image= form.cleaned_data['image']
+            category = form.cleaned_data['category']
             name = form.cleaned_data['name']
             price = form.cleaned_data['price']
-            product_category = form.cleaned_data['product_category']
+            
 
             product = Product.objects.create(
                 business_account = business_account,
+                image=image,
                 name = name,
                 price = price,
-                product_category = product_category
+                category = category,
             )
             product.save()
             return redirect('products:home')
