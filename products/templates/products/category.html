@@ -1,23 +1,199 @@
+
 {% extends 'products/base.html' %}
-{%load static%}
 
-    {%block content%}
-   
-     <div class="product-card-list">
-        {%for product in products%}
+{% load bootstrap5 %}
+{% bootstrap_css%}
+{% bootstrap_javascript%}
+{% block content %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    body{
+        background-color: rgb(179, 178, 182);
+      }
       
-        <article class="product-card">
-          <img src="{{product.image.url}}" alt="{{product.name}}">
-          
-          <p>{{product.name}}</p>
-          <p>shs.{{product.price}}</p>
-          <p>Business: {{product.business_account.name}}</p>
-          <button data-product="{{product.id}}" data-action="add" class="update-cart fbtn">Add to cart</button>
-        </article>
-        {%endfor%}
+  .card {
+  position: relative;
+  background: transparent;
+  width: 300px;
+  height: 300px;
+  border: none;
+}
 
-        
+.card:hover {
+  width: 300px;
+}
 
-    {% endblock %}
+.card .container-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #e7e7e7;
+  width: 190px;
+  height: 190px;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 1px #1818183d, 2px 2px 3px #18181865, inset 2px 2px 2px #ffffff;
+  transition: all .3s ease-in-out, opacity .3s;
+  transition-delay: .6s, 0s;
+}
 
+.card:hover .container-image {
+  opacity: 0;
+  border-radius: 8px;
+  transition-delay: 0s, .6s;
+}
+
+.card .container-image .image-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 125px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 2px #1818188a);
+  transition: all .3s ease-in-out;
+  transition-delay: .4s;
+}
+
+.card:hover .container-image .image-circle {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.card .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #e7e7e7;
+  padding: 20px;
+  width: 190px;
+  height: 190px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 3px 1px #1818183d, 2px 2px 3px #18181865, inset 2px 2px 2px #ffffff;
+  visibility: hidden;
+  transition: .3s ease-in-out;
+  transition-delay: 0s;
+  z-index: 1;
+}
+
+.card:hover .content {
+  width: 290px;
+  height: 190px;
+  visibility: visible;
+  transition-delay: .5s;
+}
+
+.card .content .detail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  transition-delay: 0s;
+}
+
+.card:hover .content .detail {
+  color: #181818;
+  opacity: 100%;
+  transition: 1s;
+  transition-delay: .3s;
+}
+
+.card .content .detail span {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.card .content .detail button {
+  color: rgb(242, 242, 249);
+        background-color: rgb(5, 2, 93);
+
+}
+
+.card .content .detail button:hover {
+  background: #070400;
+}
+
+.card .content .product-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card .content .product-image .box-image {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 100%;
+  height: 115%;
+  opacity: 0;
+  transform: scale(.5);
+  transition: all .5s ease-in-out;
+  transition-delay: 0s;
+}
+
+.card:hover .content .product-image .box-image {
+  top: -25%;
+  left: 0;
+  opacity: 100%;
+  transform: scale(1);
+  transition-delay: .3s;
+}
+
+.card .content .product-image .box-image .img-product {
+  margin: auto;
+  width: 7rem;
+  height: auto;
+}
+
+.fil-shoes1, .fil-shoes2 {
+  fill: #333333
+}
+</style>
+
+<div class="d-flex flex-row px-2">
+  {%for product in products%}
+  <div class="card">
   
+      
+    <div class="container-image d-flex justify-content-center align-content-center">
+    <img class="mx-auto w-100 h-100" src="{{product.image.url}}"  alt="{{product.name}}"height="120px"width="120px" style="border-radius: 100%;">
+    </div>
+    <div class="content">
+      <div class="detail">
+        <span>{{product.name}}</span>
+        <p>Business: {{product.business_account.name}}</p>
+        <button data-product="{{product.id}}" data-action="add" class="update-cart btn btn-sm  d-flex justify-content-center align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+          <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+          <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+        </svg></button>
+
+      </div>
+      <div class="product-image">
+        <div class="box-image d-flex align-items-center">
+          <img class="img" src="{{product.image.url}}"  alt="{{product.name}}"height="120px"width="120px" style="border-radius: 5px;">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+{%endblock%}
