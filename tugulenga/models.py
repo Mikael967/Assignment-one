@@ -86,7 +86,7 @@ class Order(models.Model):
         return total
 
 
-    
+#created this model for database table for ordering items   
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE,blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.CASCADE, blank = True, null=True)
