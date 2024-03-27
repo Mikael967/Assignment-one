@@ -27,7 +27,7 @@ class Profile (models.Model):
 
     
 
-
+#created this model for database table for the the business account
 class Business_account(models.Model):
 
     owner= models.OneToOneField(User,on_delete= models.CASCADE, blank = True, null = True)
