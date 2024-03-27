@@ -50,6 +50,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
+
+#created this model for database table for the the Products  
 class Product(models.Model):
         
         business_account= models.ForeignKey(Business_account, on_delete=models.CASCADE, null=True, blank=True )
