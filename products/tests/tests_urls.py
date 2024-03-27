@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from products.views import create_order_item, home, products, cart, deleteOrder
+from products.views import home, products, cart, deleteOrder
 
 
 class TestUrls(SimpleTestCase):
@@ -9,9 +9,6 @@ class TestUrls(SimpleTestCase):
         url=reverse('products:home')
         self.assertEquals(resolve(url).func, home)
 
-    def test_order_url_resolves(self):
-        url=reverse('products:order', args=['some-str'])
-        self.assertEquals(resolve(url).func, create_order_item)
 
     def test_cart_url_resolves(self):
         url=reverse('products:cart')
