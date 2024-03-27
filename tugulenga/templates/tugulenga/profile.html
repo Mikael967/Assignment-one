@@ -1,0 +1,9 @@
+{% extends 'tugulenga/base.html' %} {% load bootstrap5 } {% block content %}
+
+<form style="height: 400px;">
+    <h3>Profile</h3>
+    {{form}}  {% csrf_token %}
+
+    <button class="auth" type="submit">Submit</button>
+</form>
+{% endblock %}
