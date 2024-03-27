@@ -64,7 +64,7 @@ class Product(models.Model):
             return self.name
 
     
-    
+#created this model for database table for the Order   
 class Order(models.Model):
     customer = models.ForeignKey(User,on_delete= models.CASCADE, null=True,blank=True)
     date_ordered = models.DateTimeField(auto_now_add= True)
