@@ -27,7 +27,7 @@ class Profile (models.Model):
 
     
 
-
+#created this model for database table for the the business account
 class Business_account(models.Model):
 
     owner= models.OneToOneField(User,on_delete= models.CASCADE, blank = True, null = True)
@@ -50,6 +50,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
+
+#created this model for database table for the the Products  
 class Product(models.Model):
         
         business_account= models.ForeignKey(Business_account, on_delete=models.CASCADE, null=True, blank=True )
@@ -62,7 +64,7 @@ class Product(models.Model):
             return self.name
 
     
-    
+#created this model for database table for the Order   
 class Order(models.Model):
     customer = models.ForeignKey(User,on_delete= models.CASCADE, null=True,blank=True)
     date_ordered = models.DateTimeField(auto_now_add= True)
@@ -84,7 +86,7 @@ class Order(models.Model):
         return total
 
 
-    
+#created this model for database table for ordering items   
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE,blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.CASCADE, blank = True, null=True)

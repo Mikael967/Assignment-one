@@ -74,3 +74,6 @@ def add_product(request):
 
     return render(request, 'tugulenga/add_product.html',{'form':form})
     
+def profileForm(request):
+    form = ProfileForm()
+    return render(request, 'tugulenga/profile.html', {'form' : form })
