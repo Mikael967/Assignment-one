@@ -74,3 +74,4 @@ def add_product(request):
 
     return render(request, 'tugulenga/add_product.html',{'form':form})
     
+    
