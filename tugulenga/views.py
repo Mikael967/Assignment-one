@@ -40,7 +40,7 @@ def loginPage(request):
             login(request,user)
             return redirect('products:home')
         else:
-           # pass
+        #    pass
            messages.info(request,'Username or Password is incorrect')
         
     return render(request,'tugulenga/login.html')
