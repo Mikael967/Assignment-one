@@ -16,5 +16,6 @@ class TestViews(TestCase):
         '''
         had to comment the decorator(above the loginPage view) and the message in the else part 
         to ensure the working of the test because they weren't necessary to test the working of the test on the view
+        uncomment pass as well aafter commenting the message
 
         '''
