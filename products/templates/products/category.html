@@ -172,10 +172,17 @@
     margin: 1em;
     padding: 1em;
   }
+  .col {
+    flex: 1 0 150px;
+    margin: 1em;
+    min-width: 100px;
+    padding: 1em;
+  }
 </style>
 
 <div class="row">
   {%for product in products%}
+  <div class="col-sm-2">
   <div class="card">
   
       
@@ -200,6 +207,7 @@
       </div>
     </div>
   </div>
+</div>
   {%endfor%}
 </div>
 {%endblock%}
